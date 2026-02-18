@@ -1,0 +1,28 @@
+
+services:
+  postgres:
+    image: postgres:18
+    container_name: mrbp_postgres
+    environment:
+      POSTGRES_USER: mrbp
+      POSTGRES_PASSWORD: mrbp
+      POSTGRES_DB: mrbp_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+
+  api:
+    build: 
+      context: .
+      dockerfile: MRBP.API/Dockerfile
+    container_name: mrbp_api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=mrbp_db;Username=mrbp;Password=mrbp
+
+volumes:
+  postgres_data:

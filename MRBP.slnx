@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="MRBP.API/MRBP.API.csproj" />
+  <Project Path="MRBP.Application/MRBP.Application.csproj" />
+  <Project Path="MRBP.Domain/MRBP.Domain.csproj" />
+  <Project Path="MRBP.Infrastructure/MRBP.Infrastructure.csproj" />
+</Solution>
